@@ -1,2 +1,12 @@
-foo:
-  bar: "fooBar"
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/CV
+    username: kutik
+    password: lezcisobe
+  jpa:
+    generate-ddl: true
+security:
+  user:
+    name: kutik
+    password: kutik
+    role: USER
