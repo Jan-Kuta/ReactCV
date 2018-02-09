@@ -1,6 +1,7 @@
 package cz.cutesystems.cv.model;
 
-import lombok.Data;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -10,9 +11,11 @@ import java.util.Set;
  * Created by kutik on 08.02.18.
  */
 @Entity
-@Data
 @Table(name = "users")
 public class User {
+
+    public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
+
     @Id
     @GeneratedValue
     private Long id;
@@ -31,4 +34,43 @@ public class User {
     )
     private Set<Role> roles = new HashSet<Role>();
 
+    public  User(){}
+
+    public User(Long id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.setPassword(password);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = PASSWORD_ENCODER.encode(password);
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 }

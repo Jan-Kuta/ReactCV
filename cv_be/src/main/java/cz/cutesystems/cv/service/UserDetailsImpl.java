@@ -14,6 +14,7 @@ import java.util.Set;
  * Created by kutik on 08.02.18.
  */
 public class UserDetailsImpl implements UserDetails {
+
     private User user;
 
     public UserDetailsImpl(User user) {
