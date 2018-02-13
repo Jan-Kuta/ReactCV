@@ -5,7 +5,8 @@ import {createStore} from 'redux';
 import CVDetail from './containers/cv_detail';
 import CVList from './containers/cv_list';
 import registerServiceWorker from './registerServiceWorker';
-import reducers from './reducers'
+import reducers from './reducers';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => { 
     return (

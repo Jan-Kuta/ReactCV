@@ -15,6 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * Created by kutik on 08.02.18.
+ *
+ * Security configuration
  */
 @Configuration
 @EnableWebSecurity
@@ -30,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
+    private DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider
                 = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userService);
@@ -43,11 +45,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder(11);
     }
 
-    /*@Override
+    @Override
     protected void configure(HttpSecurity http) throws Exception{
-/*        http
-            .authorizeRequests();
-                .antMatchers("/").permitAll()
+        http
+            .authorizeRequests()
+                .anyRequest().permitAll();
+                /*.antMatchers("/").permitAll()
                 .anyRequest().authenticated()
              .and()
                 .formLogin()
@@ -56,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
              .and()
                 .logout();
              //     .logoutSuccessUrl("/login?logout")
-             //       .permitAll();
+             //       .permitAll();*/
 
-    }*/
+    }
 }
