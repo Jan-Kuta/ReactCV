@@ -1,16 +1,10 @@
-export default function(){
-    return [
-        {
-            id: 1,
-            name: "Jan Kuta"
-        },
-        {
-            id: 2,
-            name: "Jana Zamazalová"
-        },
-        {
-            id: 3,
-            name: "Huggo Tester"
-        }
-    ];
+import {FETCH_CVS} from '../actions/index';
+
+export default function(state = [], action){
+    switch(action.type){
+        case FETCH_CVS:
+            return action.payload.data._embedded.users;
+        default:    
+            return state;
+    }
 }

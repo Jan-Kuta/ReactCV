@@ -9,7 +9,7 @@ class CVDetail extends Component{
 
         return (
             <h2>
-                {this.props.cv.name}
+                {this.props.cv.username}
             </h2>
         );
     }   

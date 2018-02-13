@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import CVDetail from './containers/cv_detail';
 import CVList from './containers/cv_list';
 import registerServiceWorker from './registerServiceWorker';
 import reducers from './reducers';
+import ReduxPromise from 'redux-promise';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => { 
@@ -17,8 +18,10 @@ const App = () => {
     );
 } 
 
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+
 ReactDOM.render(
-    <Provider store={createStore(reducers)}>
+    <Provider store={createStoreWithMiddleware(reducers)}>
         <App />
     </Provider>
     , document.getElementById('root'));

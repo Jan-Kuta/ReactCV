@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {selectCV} from '../actions/index';
+import {selectCV, fetchCVs} from '../actions/index';
 
 class CVList extends Component {
+    componentDidMount(){
+        this.props.fetchCVs();
+    }
+
     renderList(){
         return this.props.CVs.map((cv) => {
             return (
-                <li key={cv.id} onClick={() => this.props.selectCV(cv)}>{cv.name}</li>
+                <li key={cv.id} onClick={() => this.props.selectCV(cv)}>{cv.username}</li>
             );
         });
     }
@@ -32,7 +36,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
-         selectCV: selectCV
+         selectCV: selectCV,
+         fetchCVs: fetchCVs
     }, dispatch);
 }
 
