@@ -1,5 +1,6 @@
 package cz.cutesystems.cv.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -24,6 +25,7 @@ public class User {
     private String username;
 
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
 
     @ManyToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER)

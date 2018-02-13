@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HomeController {
+public class TestController {
 
     @Secured("IS_AUTHENTICATED_ANONYMOUSLY")
-    @RequestMapping("/")
+    @RequestMapping("/home")
     public String home(){
         return "I am home!!!";
     }
@@ -21,7 +21,7 @@ public class HomeController {
         return "I am user!!!";
     }
 
-    @Secured("ROLE_ADMIN")
+    @Secured({"ROLE_ADMIN"})
     @RequestMapping("/admin")
     public String admin(){
         return "I am admin!!!";
