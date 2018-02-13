@@ -5,7 +5,12 @@
     <title>CV-React</title>
 </head>
 <body>
-
+<div>
+    Hello, <span th:text="${#authentication.name}">user</span>.
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Log Out"/>
+    </form>
+</div>
 <div id="root"></div>
 
 <script src="built/bundle.js"></script>
