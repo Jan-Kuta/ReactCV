@@ -5,7 +5,7 @@ import {createStore, applyMiddleware} from 'redux';
 import registerServiceWorker from './registerServiceWorker';
 import reducers from './reducers';
 import ReduxPromise from 'redux-promise';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from './components/home_index';
@@ -17,11 +17,13 @@ ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
         <BrowserRouter>
             <div>
-                <Route exact path="/" render={() => (
-                      <Redirect to="/cv"/>
-                  )}/>
-                <Route path="/cv" component={Home} />
-                <Route path="/new" component={CVNew} />
+                <Switch>
+                    <Route path="/cv" component={Home} />
+                    <Route path="/new" component={CVNew} />
+                    <Route path="/" render={() => (
+                        <Redirect to="/cv"/>
+                      )}/>
+                </Switch>
             </div>
         </BrowserRouter>
     </Provider>

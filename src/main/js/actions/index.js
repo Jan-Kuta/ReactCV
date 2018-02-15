@@ -23,9 +23,10 @@ export function fetchCVs(){
   };
 }
 
-export function createCV(){
+export function createCV(values, callback){
   const url=`${ROOT_URL}/users`;
-  const request = axios.post(url, {});
+  const request = axios.post(url, values)
+    .then(() => callback())
 
   return{
     type: CREATE_CV,
