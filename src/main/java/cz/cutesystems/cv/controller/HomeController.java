@@ -3,13 +3,16 @@ package cz.cutesystems.cv.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * Created by kutik on 12.02.18.
  */
 @Controller
 public class HomeController {
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = {"/", "new", "/cv/**"})
     public String index(){
         return "index";
     }
