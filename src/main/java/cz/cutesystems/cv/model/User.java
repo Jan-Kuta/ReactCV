@@ -20,7 +20,7 @@ public class User {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long userId;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -37,20 +37,36 @@ public class User {
     )
     private Set<Role> roles = new HashSet<Role>();
 
+    @OneToOne(cascade=CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
+    private UserDetails details;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Skill> skills = new HashSet<Skill>();
+
+    @OneToMany(mappedBy = "user")
+    private Set<Education> education = new HashSet<Education>();
+
+    @OneToMany(mappedBy = "user")
+    private Set<Work> work = new HashSet<Work>();
+
+    @OneToMany(mappedBy = "user")
+    private Set<Hobby> hobbies = new HashSet<Hobby>();
+
     public  User(){}
 
     public User(Long id, String username, String password) {
-        this.id = id;
+        this.userId = id;
         this.username = username;
         this.setPassword(password);
     }
 
-    public Long getId() {
-        return id;
+
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -76,4 +92,45 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    public UserDetails getDetails() {
+        return details;
+    }
+
+    public void setDetails(UserDetails details) {
+        this.details = details;
+    }
+
+    public Set<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(Set<Skill> skills) {
+        this.skills = skills;
+    }
+
+    public Set<Education> getEducation() {
+        return education;
+    }
+
+    public void setEducation(Set<Education> education) {
+        this.education = education;
+    }
+
+    public Set<Work> getWork() {
+        return work;
+    }
+
+    public void setWork(Set<Work> work) {
+        this.work = work;
+    }
+
+    public Set<Hobby> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(Set<Hobby> hobbies) {
+        this.hobbies = hobbies;
+    }
+
 }

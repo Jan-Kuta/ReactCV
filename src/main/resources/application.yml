@@ -8,3 +8,5 @@ spring:
     password: lezcisobe
   jpa:
     generate-ddl: true
+    hibernate:
+      ddl-auto: create
