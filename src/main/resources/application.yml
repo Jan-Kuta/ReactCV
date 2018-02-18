@@ -1,4 +1,10 @@
 spring:
+  resources:
+    cache-period: 0
+    chain:
+      cache: false
+  cache:
+    type: NONE
   data:
     rest:
       base-path: /api

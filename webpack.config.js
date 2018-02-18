@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
     entry: './src/main/js/index.js',
     devtool: 'sourcemaps',
-    cache: true,
+    cache: false,
     output: {
         path: __dirname,
         filename: './src/main/resources/static/built/bundle.js'

@@ -1,0 +1,15 @@
+body {
+    background:#ccc!important;
+}
+
+.box {
+    background:#FFF;
+    margin:20px auto;
+    padding: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+}
