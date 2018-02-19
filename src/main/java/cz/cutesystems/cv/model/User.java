@@ -60,7 +60,7 @@ public class User {
     )
     private Set<Role> roles = new HashSet<Role>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Skill> skills = new HashSet<Skill>();
 
     @OneToMany(mappedBy = "user")

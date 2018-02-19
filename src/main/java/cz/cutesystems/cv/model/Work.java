@@ -1,5 +1,7 @@
 package cz.cutesystems.cv.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -30,6 +32,7 @@ public class Work {
 
     private String notes;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
     private User user;

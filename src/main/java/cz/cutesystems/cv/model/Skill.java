@@ -1,5 +1,7 @@
 package cz.cutesystems.cv.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -19,6 +21,7 @@ public class Skill {
 
     private String note;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
     private User user;

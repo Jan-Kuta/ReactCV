@@ -30,6 +30,7 @@ export function createCV(values, callback){
   const url=`${ROOT_URL}/users`;
   const request = axios.post(url, values)
     .then(() => callback())
+    .catch((err) => { alert(err);})
 
   return{
     type: CREATE_CV,
