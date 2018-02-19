@@ -32,10 +32,6 @@ public class Work {
 
     private String notes;
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="user_id", nullable=false)
-    private User user;
 
     public Long getId() {
         return id;
@@ -109,11 +105,4 @@ public class Work {
         this.notes = notes;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

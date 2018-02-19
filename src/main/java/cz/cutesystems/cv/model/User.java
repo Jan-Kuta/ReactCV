@@ -64,13 +64,16 @@ public class User {
     @JoinColumn(name= "user_id")
     private Set<Skill> skills = new HashSet<Skill>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name= "user_id")
     private Set<Education> education = new HashSet<Education>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name= "user_id")
     private Set<Work> work = new HashSet<Work>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name= "user_id")
     private Set<Hobby> hobbies = new HashSet<Hobby>();
 
     public  User(){}

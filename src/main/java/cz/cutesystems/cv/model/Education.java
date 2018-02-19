@@ -30,10 +30,6 @@ public class Education {
 
     private String thesis;
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="user_id", nullable=false)
-    private User user;
 
     public Long getId() {
         return id;
@@ -99,11 +95,4 @@ public class Education {
         this.thesis = thesis;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
