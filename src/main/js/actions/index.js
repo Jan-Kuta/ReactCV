@@ -17,7 +17,7 @@ export function selectCV(userId) {
 }
 
 export function fetchCVs(){
-  const url=`${ROOT_URL}/users?projection=base`;
+  const url=`${ROOT_URL}/users`;
   const request = axios.get(url);
 
   return{

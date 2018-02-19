@@ -21,7 +21,7 @@ public class User {
 
     @Id
     @GeneratedValue
-    private Long userId;
+    private Long id;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -60,7 +60,8 @@ public class User {
     )
     private Set<Role> roles = new HashSet<Role>();
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name= "user_id")
     private Set<Skill> skills = new HashSet<Skill>();
 
     @OneToMany(mappedBy = "user")
@@ -75,18 +76,18 @@ public class User {
     public  User(){}
 
     public User(Long id, String username, String password) {
-        this.userId = id;
+        this.id = id;
         this.username = username;
         this.setPassword(password);
     }
 
 
-    public Long getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -224,4 +225,5 @@ public class User {
     public void setWebpage(String webpage) {
         this.webpage = webpage;
     }
+
 }

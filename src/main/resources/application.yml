@@ -5,9 +5,6 @@ spring:
       cache: false
   cache:
     type: NONE
-  data:
-    rest:
-      base-path: /api
   datasource:
     url: jdbc:postgresql://localhost/CV
     username: kutik
@@ -16,3 +13,12 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: create
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
