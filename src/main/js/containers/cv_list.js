@@ -11,7 +11,7 @@ class CVList extends Component {
     renderList(){
         return this.props.CVs.map((cv) => {
             return (
-                <li key={cv.id} onClick={() => this.props.selectCV(cv.id)}>{cv.username}</li>
+                <li className="list-group-item" key={cv.id} onClick={() => this.props.selectCV(cv.id)}>{cv.username}</li>
             );
         });
     }
@@ -19,8 +19,8 @@ class CVList extends Component {
     render(){
         return (
             <div>
-                <h1>CV List</h1>
-                <ul>
+                <h1>CVs</h1>
+                <ul className="list-group">
                     {this.renderList()}
                 </ul>
             </div>
