@@ -11,8 +11,8 @@ spring:
     password: lezcisobe
   jpa:
     generate-ddl: true
-    hibernate:
-      ddl-auto: create
+    #hibernate:
+      #ddl-auto: create
 logging:
   level:
     org:
