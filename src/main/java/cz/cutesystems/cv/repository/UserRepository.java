@@ -11,5 +11,5 @@ import java.util.Collection;
  */
 public interface UserRepository extends CrudRepository<User, Long> {
     User findByUsername(String username);
-    Collection<UserProjection> findAllProjectedBy();
+    Collection<UserProjection> findAllProjectedByOrderByUsernameAsc();
 }

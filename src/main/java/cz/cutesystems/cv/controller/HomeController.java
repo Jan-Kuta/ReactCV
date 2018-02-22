@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class HomeController {
 
-    @RequestMapping(value = {"/", "new", "/cv/**"})
+    @RequestMapping(value = {"/", "new", "/cv/**", "/edit/**"})
     public String index(){
         return "index";
     }

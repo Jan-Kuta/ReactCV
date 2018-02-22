@@ -24,14 +24,14 @@ class CVDetail extends Component{
                         <div className="bg-info text-white p-2">
                             <UserDetailList {...this.props.cv}/>
                             <br />
-                            <SkillList skills={this.props.cv.skills} />
+                            <SkillList skills={this.props.cv.skills.sort((a, b) => { return a.id - b.id; })} />
                         </div>
                     </div>
                     <div className="col-8">
-                        <div className="bg-success text-white p-2 h-100">
-                            <EducationList education={this.props.cv.education}/>
+                        <div className="bg-success text-white p-2 h-100">                            
+                            <WorkList work={this.props.cv.work.sort((a,b) => {return a.startDate - b.startDate;})} />
                             <br />
-                            <WorkList work={this.props.cv.work} />
+                            <EducationList education={this.props.cv.education.sort((a,b) => {return a.startDate - b.startDate;})}/>
                             <br />
                         </div>
                     </div>

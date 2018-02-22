@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {withRouter} from "react-router-dom";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {selectCV, fetchCVs} from '../actions/index';
@@ -6,12 +7,20 @@ import {selectCV, fetchCVs} from '../actions/index';
 class CVList extends Component {
     componentDidMount(){
         this.props.fetchCVs();
+        if (this.props.match.params.id){
+            this.props.selectCV(this.props.match.params.id);
+        }
+        
     }
 
     renderList(){
         return this.props.CVs.map((cv) => {
+            const className = `list-group-item ${ this.props.cv && this.props.cv.id == cv.id ? "active" : ""}`;
             return (
-                <li className="list-group-item" key={cv.id} onClick={() => this.props.selectCV(cv.id)}>{cv.username}</li>
+                <li className={className} key={cv.id} onClick={() => {
+                    this.props.history.push("/cv/"+cv.id);
+                    this.props.selectCV(cv.id);
+                    }}>{cv.username}</li>
             );
         });
     }
@@ -30,7 +39,8 @@ class CVList extends Component {
 
 function mapStateToProps(state){
     return {
-        CVs: state.CVs
+        CVs: state.CVs,
+        cv: state.selectedCV
     };
 }
 
@@ -41,4 +51,4 @@ function mapDispatchToProps(dispatch){
     }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CVList);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CVList));

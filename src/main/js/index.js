@@ -6,10 +6,9 @@ import registerServiceWorker from './registerServiceWorker';
 import reducers from './reducers';
 import ReduxPromise from 'redux-promise';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from './components/home_index';
-import CVNew from './components/cv_new';
+import CVForm from './components/cv_form';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
@@ -18,8 +17,10 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <Switch>
-                    <Route path="/cv" component={Home} />
-                    <Route path="/new" component={CVNew} />
+                    <Route path="/cv/:id" component={Home} />
+                    <Route exact path="/cv" component={Home} />
+                    <Route path="/new" component={CVForm} />
+                    <Route path="/edit/:id" component={CVForm} />
                     <Route path="/" render={() => (
                         <Redirect to="/cv"/>
                       )}/>

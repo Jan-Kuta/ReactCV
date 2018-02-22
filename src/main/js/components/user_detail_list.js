@@ -9,8 +9,8 @@ const UserDetailList = (props) => {
             <UserDetailRow iconName="phone" text={props.phone} />
             <UserDetailRow iconName="car" text={props.drivingLicence} />
             <UserDetailRow iconName="map-marker" text={props.address} />
-            <UserDetailRow iconName="linkedin" text={props.linkedinAccount} />
-            <UserDetailRow iconName="globe" text={props.webpage} />
+            <UserDetailRow iconName="share-square" text={props.linkedinAccount} link={true}/>
+            <UserDetailRow iconName="globe" text={props.webpage} link={true}/>
         </div>
     );
 }
