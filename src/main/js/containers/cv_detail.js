@@ -4,6 +4,7 @@ import UserDetailList from '../components/user_detail_list';
 import SkillList from '../components/skill_list';
 import EducationList from '../components/education_list';
 import WorkList from '../components/work_list';
+import HobbyList from '../components/hobby_list';
 
 class CVDetail extends Component{
     render() {
@@ -14,7 +15,7 @@ class CVDetail extends Component{
         return (
             <div className="box p-0">
                 <div className="row no-gutters">
-                    <div className="col-4">
+                    <div className="col-4 bg-info">
                         <div className="bg-primary text-white p-2 text-center">
                             <h2>
                                 {this.props.cv.firstname + " " + this.props.cv.lastname}
@@ -28,11 +29,28 @@ class CVDetail extends Component{
                         </div>
                     </div>
                     <div className="col-8">
-                        <div className="bg-success text-white p-2 h-100">                            
-                            <WorkList work={this.props.cv.work.sort((a,b) => {return a.startDate - b.startDate;})} />
+                        <div className="p-2">                            
+                            <WorkList work={this.props.cv.work.sort((a,b) => {
+                                if (a.startDate < b.startDate){
+                                    return 1;
+                                }
+                                if (a.startDate > b.startDate){
+                                    return -1;
+                                }
+                                return 0;
+                                })} />
                             <br />
-                            <EducationList education={this.props.cv.education.sort((a,b) => {return a.startDate - b.startDate;})}/>
+                            <EducationList education={this.props.cv.education.sort((a,b) => {
+                                if (a.startDate < b.startDate){
+                                    return 1;
+                                }
+                                if (a.startDate > b.startDate){
+                                    return -1;
+                                }
+                                return 0;
+                                })}/>
                             <br />
+                            <HobbyList hobbies={this.props.cv.hobbies.sort((a,b) => {return a.id - b.id;})} />
                         </div>
                     </div>
                 </div>

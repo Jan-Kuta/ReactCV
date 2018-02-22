@@ -15,12 +15,19 @@ class CVList extends Component {
 
     renderList(){
         return this.props.CVs.map((cv) => {
-            const className = `list-group-item ${ this.props.cv && this.props.cv.id == cv.id ? "active" : ""}`;
+            const className = `list-group-item text-right ${ this.props.cv && this.props.cv.id == cv.id ? "active" : ""}`;
             return (
-                <li className={className} key={cv.id} onClick={() => {
-                    this.props.history.push("/cv/"+cv.id);
-                    this.props.selectCV(cv.id);
-                    }}>{cv.username}</li>
+                <li 
+                    className={className} 
+                    key={cv.id} 
+                    onClick={() => {
+                        this.props.history.push("/cv/"+cv.id);
+                        this.props.selectCV(cv.id);
+                    }}
+                >{cv.username} <span className="fa fa-edit" onClick={(event) => {
+                        event.stopPropagation();
+                        this.props.history.push("/edit/"+cv.id);
+                    }}></span></li>
             );
         });
     }

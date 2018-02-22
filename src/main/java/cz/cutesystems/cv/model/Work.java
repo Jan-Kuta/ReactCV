@@ -3,7 +3,7 @@ package cz.cutesystems.cv.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by kutik on 16.02.18.

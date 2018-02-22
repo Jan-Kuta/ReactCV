@@ -9,11 +9,11 @@ class SkillList extends Component{
                 <div key={skill.id} className="popover__wrapper">
                     <div>
                         {skill.title} <div className="progress">
-                            <div className="progress-bar bg-warning" style={styles} role="progressbar" aria-valuenow={skill.level} aria-valuemin="0" aria-valuemax="100">{skill.level}%</div>
+                            <div className="progress-bar bg-primary" style={styles} role="progressbar" aria-valuenow={skill.level} aria-valuemin="0" aria-valuemax="100">{skill.level}%</div>
                         </div>
                     </div>
                     <div className="push popover__content">
-                        <div className="popover__message">{skill.note}</div>
+                        <div className="text-dark popover__message">{skill.note}</div>
                     </div>
                 </div>
             );
