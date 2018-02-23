@@ -111,6 +111,8 @@ public class User {
         this.password = PASSWORD_ENCODER.encode(password);
     }
 
+    public void setPasswordPlain(String plainPassword) { this.password = plainPassword; }
+
     public Set<Role> getRoles() {
         return roles;
     }

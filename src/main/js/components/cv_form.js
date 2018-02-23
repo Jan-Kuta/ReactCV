@@ -126,13 +126,10 @@ class CVForm extends Component{
                                 />
                                 <Field
                                     name="image"
-                                    label="Imageee"
+                                    label="Image"
                                     type="file"
                                     grid="6"
-                                    ref={input => {
-                                        this.fileInput = input;
-                                    }}
-                                    component={renderField}
+                                    component={renderFileInput}
                                 />
                             </div>
                             <FieldArray name="skills" component={renderSkills} />
@@ -148,6 +145,27 @@ class CVForm extends Component{
         )
     }
 }
+
+const renderFileInput = (props) => {
+    const onChange = (e) => {
+        props.input.onChange(e.target.files[0]);
+    }
+    const grid = `col-sm-${props.grid}`;
+
+    return (
+        <div className={grid}>
+            <label>{props.label}</label>
+            <input
+                type="file"
+                className="form-control p-0"
+                onChange={onChange}
+            />
+            <div className="text-danger">
+                {props.meta.touched ? props.meta.error : '' }
+            </div>
+        </div>
+    );
+  }
 
 const renderField = (field) => {
     const className = `form-control ${field.meta.touched && field.meta.error ? 'is-invalid' : ''}`;
@@ -434,13 +452,14 @@ const renderSkills = ({ fields, meta: { error, submitFailed } }) => (
   )
 
 const validate = (values) => {
+    console.log("validation", values);
     const errors = {}
     
     if (!values.username){
         errors.username = "Required";
     }
 
-    if (!values.password){
+    if (!values.id && !values.password){
         errors.password = "Required";
     }
 

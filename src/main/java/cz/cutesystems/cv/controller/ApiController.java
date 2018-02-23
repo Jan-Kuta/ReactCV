@@ -55,6 +55,11 @@ public class ApiController {
     @RequestMapping(value = "/users/{id}", method = RequestMethod.PUT)
     public User updateUser(@PathVariable Long id, @RequestBody User user){
         user.setId(id);
+
+        // Set old password if not changed
+        if(user.getPassword() == null){
+            user.setPasswordPlain(this.userRepository.getPlainPassword(id));
+        }
         return this.userRepository.save(user);
     }
 }
