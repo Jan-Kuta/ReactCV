@@ -34,8 +34,7 @@ class CVList extends Component {
 
     render(){
         return (
-            <div>
-                <h1>CVs</h1>
+            <div className="mt-3">
                 <ul className="list-group">
                     {this.renderList()}
                 </ul>

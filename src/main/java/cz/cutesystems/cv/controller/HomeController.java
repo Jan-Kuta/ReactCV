@@ -12,8 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class HomeController {
 
-    @RequestMapping(value = {"/", "new", "/cv/**", "/edit/**"})
+    @RequestMapping(value = {"/", "/new", "/cv/**", "/edit/**"})
     public String index(){
         return "index";
+    }
+
+    @RequestMapping(value = {"/login"})
+    public String login(){
+        return "login";
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head lang="en">
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="/style/style.css" />
@@ -8,12 +8,13 @@
     <title>CV-React</title>
 </head>
 <body>
-<!--div>
-    Hello, <span th:text="${#authentication.name}">user</span>.
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Log Out"/>
-    </form>
-</div-->
+<nav class="navbar navbar-dark bg-dark justify-content-between">
+    <a class="navbar-brand text-white">CV-React</a>
+    <div>
+        <span sec:authorize="isAuthenticated()"><span class="text-white">Hello, <span th:text="${#authentication.name}">user</span></span> <a th:href="@{/logout}" class="btn btn-outline-danger my-2 my-sm-0">Log Out</a></span>
+        <span sec:authorize="isAnonymous()"><a th:href="@{/login}" class="btn btn-outline-success my-2 my-sm-0">Log in</a><a href="/new" class="btn btn-outline-primary my-2 my-sm-0">Sign in</a></span>
+    </div>
+</nav>
 <div id="root"></div>
 
 <script src="/built/bundle.js"></script>

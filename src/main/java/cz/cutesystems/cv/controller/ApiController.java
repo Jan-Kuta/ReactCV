@@ -19,15 +19,7 @@ import java.util.Collection;
 public class ApiController {
 
     private final UserRepository userRepository;
-
-    public static <T> T combine2Objects(T a, T b) throws InstantiationException, IllegalAccessException {
-        // would require a noargs constructor for the class, maybe you have a different way to create the result.
-        T result = (T) a.getClass().newInstance();
-        BeanUtils.copyProperties(a, result);
-        BeanUtils.copyProperties(b, result);
-        return result;
-    }
-
+    
     @Autowired
     ApiController(UserRepository userRepository) {
         this.userRepository = userRepository;
