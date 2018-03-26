@@ -190,12 +190,7 @@ const renderField = (field) => {
 
 const renderSkills = ({ fields, meta: { error, submitFailed } }) => (
     <div className="box">
-      <h1>Skills</h1>
-        <button type="button" className="btn btn-success" onClick={() => fields.push({})}>
-            Add Skill
-        </button>
-        {submitFailed && error && <span>{error}</span>}
-      
+      <h1>Skills</h1>      
       {fields.map((skill, index) => (
         <div className="box" key={index}>
             <div className="text-right">
@@ -238,17 +233,16 @@ const renderSkills = ({ fields, meta: { error, submitFailed } }) => (
           </div>
         </div>
       ))}
+      <button type="button" className="btn btn-success" onClick={() => fields.push({})}>
+            Add Skill
+        </button>
+        {submitFailed && error && <span>{error}</span>}
     </div>
   )
 
   const renderEducation = ({ fields, meta: { error, submitFailed } }) => (
     <div className="box">
       <h1>Education</h1>
-        <button type="button" className="btn btn-success" onClick={() => fields.push({})}>
-            Add Education
-        </button>
-        {submitFailed && error && <span>{error}</span>}
-      
       {fields.map((education, index) => (
         <div className="box" key={index}>
             <div className="text-right">
@@ -321,17 +315,16 @@ const renderSkills = ({ fields, meta: { error, submitFailed } }) => (
           </div>
         </div>
       ))}
+      <button type="button" className="btn btn-success" onClick={() => fields.push({})}>
+            Add Education
+        </button>
+        {submitFailed && error && <span>{error}</span>}
     </div>
   )
 
   const renderWork = ({ fields, meta: { error, submitFailed } }) => (
     <div className="box">
       <h1>Work</h1>
-        <button type="button" className="btn btn-success" onClick={() => fields.push({})}>
-            Add Work
-        </button>
-        {submitFailed && error && <span>{error}</span>}
-      
       {fields.map((work, index) => (
         <div className="box" key={index}>
             <div className="text-right">
@@ -413,17 +406,16 @@ const renderSkills = ({ fields, meta: { error, submitFailed } }) => (
             </div>   
         </div>
       ))}
+      <button type="button" className="btn btn-success" onClick={() => fields.push({})}>
+            Add Work
+        </button>
+        {submitFailed && error && <span>{error}</span>}
     </div>
   )
 
   const renderHobbies = ({ fields, meta: { error, submitFailed } }) => (
     <div className="box">
       <h1>Hobbies</h1>
-        <button type="button" className="btn btn-success" onClick={() => fields.push({})}>
-            Add Hobby
-        </button>
-        {submitFailed && error && <span>{error}</span>}
-      
       {fields.map((hobby, index) => (
         <div className="box" key={index}>
             <div className="text-right">
@@ -448,6 +440,10 @@ const renderSkills = ({ fields, meta: { error, submitFailed } }) => (
           </div>
         </div>
       ))}
+      <button type="button" className="btn btn-success" onClick={() => fields.push({})}>
+            Add Hobby
+        </button>
+        {submitFailed && error && <span>{error}</span>}
     </div>
   )
 
