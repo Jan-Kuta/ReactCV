@@ -15,14 +15,14 @@ class CVDetail extends Component{
         return (
             <div className="box p-0">
                 <div className="row no-gutters">
-                    <div className="col-sm-4 bg-info">
-                        <div className="bg-primary text-white p-2 text-center">
+                    <div className="col-sm-4 bg-primary">
+                        <div className="bg-success text-white p-2 text-center">
                             <h2>
                                 {this.props.cv.firstname + " " + this.props.cv.lastname}
                             </h2>
                             <img src="https://picsum.photos/120/180" className="rounded" alt="avatar" />
                         </div>
-                        <div className="bg-info text-white p-2">
+                        <div className="bg-primary text-white p-2">
                             <UserDetailList {...this.props.cv}/>
                             <br />
                             <SkillList skills={this.props.cv.skills.sort((a, b) => { return a.id - b.id; })} />
