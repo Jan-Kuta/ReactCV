@@ -15,7 +15,7 @@ class CVDetail extends Component{
         return (
             <div className="box p-0">
                 <div className="row no-gutters">
-                    <div className="col-sm-4 bg-primary">
+                    <div className="col-sm-auto bg-primary">
                         <div className="bg-success text-white p-2 text-center">
                             <h2>
                                 {this.props.cv.firstname + " " + this.props.cv.lastname}
@@ -28,7 +28,7 @@ class CVDetail extends Component{
                             <SkillList skills={this.props.cv.skills.sort((a, b) => { return a.id - b.id; })} />
                         </div>
                     </div>
-                    <div className="col-sm-8">
+                    <div className="col">
                         <div className="p-2">                            
                             <WorkList work={this.props.cv.work.sort((a,b) => {
                                 if (a.startDate < b.startDate){
