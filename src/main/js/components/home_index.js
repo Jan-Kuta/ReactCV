@@ -10,8 +10,8 @@ class Home extends Component{
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-4"><CVList/></div>
-                    <div className="col-md-8"><CVDetail/></div>
+                    <div className="col-md-auto"><CVList/></div>
+                    <div className="col-md"><CVDetail/></div>
                 </div>
             </div>
         );
