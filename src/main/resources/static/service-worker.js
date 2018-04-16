@@ -36,7 +36,24 @@ self.addEventListener('activate', function(event) {
   return self.clients.claim();
 });
 
+function isInArray(string, array) {
+  var cachePath;
+  if (string.indexOf(self.origin) === 0) { // request targets domain where we serve the page from (i.e. NOT a CDN)
+    console.log('matched ', string);
+    cachePath = string.substring(self.origin.length); // take the part of the URL AFTER the domain (e.g. after localhost:8080)
+  } else {
+    cachePath = string; // store the full request (for CDNs)
+  }
+  return array.indexOf(cachePath) > -1;
+}
+
 self.addEventListener('fetch', function(event) {
   console.log('[Service Worker] Fetching something ....', event);
-  event.respondWith(fetch(event.request));
+  if (isInArray(event.request.url, STATIC_FILES)) {
+      event.respondWith(
+        caches.match(event.request)
+      );
+  } else {
+    event.respondWith(fetch(event.request));
+  }
 });
