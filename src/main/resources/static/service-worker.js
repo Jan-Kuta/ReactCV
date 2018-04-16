@@ -1,5 +1,7 @@
-var CACHE_STATIC_NAME = 'static-v1';
+var CACHE_STATIC_NAME = 'static-v2';
 var STATIC_FILES = [
+  '/',
+  '/cv',
   '/style/style.css',
   '/built/bundle.js',
   '/built/bundle.js.map',
